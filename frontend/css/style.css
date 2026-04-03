@@ -46,3 +46,112 @@ body {
     margin: 30px auto;
     padding: 0 20px;
 }
+
+/* ===== FORM CONTAINER ===== */
+.form-container {
+    max-width: 450px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: #4a6fa5;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* ===== FORM GROUPS ===== */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4a6fa5;
+}
+
+.field-error {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #3a5a8a;
+}
+
+/* ===== MESSAGES ===== */
+.error-message {
+    background-color: #fff5f5;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.success-message {
+    background-color: #f0fff4;
+    border: 1px solid #2ecc71;
+    color: #27ae60;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+.form-footer a {
+    color: #4a6fa5;
+    text-decoration: none;
+    font-weight: 600;
+}
