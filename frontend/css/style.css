@@ -155,3 +155,48 @@ body {
     text-decoration: none;
     font-weight: 600;
 }
+
+
+/* ===== LOADER SPINNER ===== */
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+.btn-primary:disabled {
+    background-color: #7a9cc5;
+    cursor: not-allowed;
+}
+
+.form-group input.input-error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+.form-group input.input-success {
+    border-color: #2ecc71;
+    background-color: #f0fff4;
+}

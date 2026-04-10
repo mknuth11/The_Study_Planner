@@ -2,7 +2,6 @@ const API_URL = "http://127.0.0.1:8000";
 
 // ===== SIGNUP =====
 async function handleSignup() {
-    // Clear previous errors
     clearErrors();
 
     const username = document.getElementById("username").value.trim();
@@ -24,9 +23,15 @@ async function handleSignup() {
         showFieldError("password-error", "Password is required");
         hasError = true;
     }
+    if (password.length < 6) {
+        showFieldError("password-error", "Password must be at least 6 characters");
+        hasError = true;
+    }
     if (hasError) return;
 
-    // Send to backend
+    // Show loader
+    showLoader("signup-btn", "Creating account...");
+
     try {
         const response = await fetch(`${API_URL}/auth/signup`, {
             method: "POST",
@@ -37,13 +42,18 @@ async function handleSignup() {
         const data = await response.json();
 
         if (data.success) {
-            document.getElementById("success-message").style.display = "block";
+            showSuccess("Account created successfully! Redirecting to login...");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
         } else {
             showError(data.message);
         }
 
     } catch (error) {
-        showError("Unable to connect to the server. Please try again later.");
+        showError("Unable to connect to the server. Please check your connection and try again.");
+    } finally {
+        hideLoader("signup-btn", "Create Account");
     }
 }
 
@@ -66,6 +76,8 @@ async function handleLogin() {
     }
     if (hasError) return;
 
+    showLoader("login-btn", "Logging in...");
+
     try {
         const response = await fetch(`${API_URL}/auth/login`, {
             method: "POST",
@@ -76,34 +88,62 @@ async function handleLogin() {
         const data = await response.json();
 
         if (data.success) {
-            // Save user to localStorage
             localStorage.setItem("user", JSON.stringify(data.user));
-            // Redirect to dashboard
-            window.location.href = "index.html";
+            showSuccess("Login successful! Redirecting...");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
         } else {
             showError(data.message);
         }
 
     } catch (error) {
-        showError("Unable to connect to the server. Please try again later.");
+        showError("Unable to connect to the server. Please check your connection and try again.");
+    } finally {
+        hideLoader("login-btn", "Login");
     }
 }
 
 // ===== HELPERS =====
 function showFieldError(id, message) {
-    document.getElementById(id).textContent = message;
-    document.getElementById(id).style.color = "red";
+    const el = document.getElementById(id);
+    el.textContent = message;
+    el.style.display = "block";
 }
 
 function showError(message) {
-    document.getElementById("error-message").style.display = "block";
-    document.getElementById("error-text").textContent = message;
+    const el = document.getElementById("error-message");
+    el.innerHTML = `⚠️ ${message}`;
+    el.style.display = "block";
+    el.classList.add("shake");
+    setTimeout(() => el.classList.remove("shake"), 500);
+}
+
+function showSuccess(message) {
+    const el = document.getElementById("success-message");
+    el.innerHTML = `✅ ${message}`;
+    el.style.display = "block";
+}
+
+function showLoader(btnId, loadingText) {
+    const btn = document.getElementById(btnId);
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> ${loadingText}`;
+}
+
+function hideLoader(btnId, originalText) {
+    const btn = document.getElementById(btnId);
+    btn.disabled = false;
+    btn.innerHTML = originalText;
 }
 
 function clearErrors() {
-    const errors = document.querySelectorAll(".field-error");
-    errors.forEach(e => e.textContent = "");
-    document.getElementById("error-message").style.display = "none";
+    document.querySelectorAll(".field-error").forEach(e => {
+        e.textContent = "";
+        e.style.display = "none";
+    });
+    const error = document.getElementById("error-message");
+    if (error) error.style.display = "none";
     const success = document.getElementById("success-message");
     if (success) success.style.display = "none";
 }
