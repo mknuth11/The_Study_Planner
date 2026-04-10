@@ -21,3 +21,29 @@ def signup(user: UserSignup):
     # Save to database
     result = create_user(user.username, user.email, password_hash)
     return result
+
+@router.post("/login")
+def login(user: UserLogin):
+    # Find user in database
+    existing_user = get_user_by_username(user.username)
+    if not existing_user:
+        return {"success": False, "message": "Invalid username or password."}
+    
+    # Check password
+    password_match = bcrypt.checkpw(
+        user.password.encode('utf-8'),
+        existing_user['password_hash'].encode('utf-8')
+    )
+    
+    if not password_match:
+        return {"success": False, "message": "Invalid username or password."}
+    
+    return {
+        "success": True,
+        "message": "Login successful!",
+        "user": {
+            "id": existing_user['id'],
+            "username": existing_user['username'],
+            "email": existing_user['email']
+        }
+    }
