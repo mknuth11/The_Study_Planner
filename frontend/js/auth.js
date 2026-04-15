@@ -64,6 +64,7 @@ async function handleLogin() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
 
+    // Frontend validation
     let hasError = false;
 
     if (!username) {
@@ -84,6 +85,12 @@ async function handleLogin() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
         });
+
+        // Handle server errors
+        if (!response.ok && response.status !== 422) {
+            showError("Server error. Please try again later.");
+            return;
+        }
 
         const data = await response.json();
 
