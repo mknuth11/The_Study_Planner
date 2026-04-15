@@ -218,3 +218,50 @@ body {
 .nav-logout:hover {
     background-color: rgba(231,76,60,0.3) !important;
 }
+
+/* ===== TEXTAREA ===== */
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    min-height: 80px;
+    font-family: 'Segoe UI', sans-serif;
+    transition: border 0.2s;
+}
+
+.form-group textarea:focus {
+    border-color: #4a6fa5;
+}
+
+/* ===== DATE INPUT ===== */
+input[type="datetime-local"] {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: #4a6fa5;
+}
+
+/* ===== NUMBER INPUT ===== */
+input[type="number"] {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #4a6fa5;
+}
