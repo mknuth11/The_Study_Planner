@@ -200,3 +200,21 @@ body {
     border-color: #2ecc71;
     background-color: #f0fff4;
 }
+
+/* ===== NAVBAR USERNAME ===== */
+.nav-username {
+    color: white;
+    font-size: 15px;
+    padding: 6px 12px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 6px;
+}
+
+.nav-logout {
+    color: #ffcccc !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.nav-logout:hover {
+    background-color: rgba(231,76,60,0.3) !important;
+}
