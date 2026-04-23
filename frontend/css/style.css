@@ -6,28 +6,32 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6fb;
+    background-color: #eef2f7;
     color: #333;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
-    background-color: #4a6fa5;
+    background: linear-gradient(135deg, #2c3e50, #4a6fa5);
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
 }
 
 .nav-logo {
     color: white;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -35,38 +39,237 @@ body {
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
 .nav-links a:hover {
     background-color: rgba(255,255,255,0.2);
 }
 
+/* ===== NAVBAR USERNAME ===== */
+.nav-username {
+    color: white;
+    font-size: 14px;
+    padding: 6px 12px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 6px;
+}
+
+.nav-logout {
+    color: #ffcccc !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.nav-logout:hover {
+    background-color: rgba(231,76,60,0.3) !important;
+}
+
+/* ===== MAIN CONTENT ===== */
 .main-content {
     max-width: 1100px;
-    margin: 30px auto;
+    margin: 35px auto;
     padding: 0 20px;
+}
+
+/* ===== DASHBOARD TITLE ===== */
+.main-content h1 {
+    font-size: 30px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 800;
+    border-bottom: 3px solid #4a6fa5;
+    padding-bottom: 12px;
+}
+
+/* ===== TASK CARD ===== */
+.task-card {
+    background-color: white;
+    border-left: 6px solid #4a6fa5;
+    border-radius: 10px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* WARNING - 72 hours */
+.task-card.warning {
+    border-left-color: #F9AB00;
+    background-color: white;
+}
+
+/* URGENT - 48 hours */
+.task-card.urgent {
+    border-left-color: #D93025;
+    background-color: white;
+}
+
+/* OVERDUE */
+.task-card.overdue {
+    border-left-color: #B31412;
+    background-color: white;
+}
+
+/* COMPLETED */
+.task-card.completed {
+    border-left-color: #1E8E3E;
+    background-color: white;
+    opacity: 0.85;
+}
+
+/* ===== TASK TYPE BADGE ===== */
+.task-type-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Google Classroom inspired colors */
+.badge-homework { background-color: #1A73E8; color: white; }
+.badge-quiz     { background-color: #9334E6; color: white; }
+.badge-test     { background-color: #D93025; color: white; }
+.badge-project  { background-color: #1E8E3E; color: white; }
+
+/* ===== HIGH PRIORITY LABEL ===== */
+.high-priority-label {
+    background-color: #F9AB00;
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* ===== OVERDUE LABEL ===== */
+.overdue-label {
+    background-color: #D93025;
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* ===== TASK INFO ===== */
+.task-info h4 {
+    font-size: 17px;
+    margin-bottom: 7px;
+    color: #202124;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.task-info p {
+    font-size: 13px;
+    color: #5F6368;
+    margin-bottom: 3px;
+}
+
+/* ===== MARK AS DONE BUTTON ===== */
+.task-actions button {
+    background-color: #1A73E8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(26,115,232,0.3);
+}
+
+.task-actions button:hover {
+    background-color: #1557B0;
+    box-shadow: 0 4px 12px rgba(26,115,232,0.4);
+    transform: translateY(-1px);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background-color: #1A73E8;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ===== DASHBOARD TITLE ===== */
+.main-content h1 {
+    font-size: 30px;
+    color: #202124;
+    margin-bottom: 25px;
+    font-weight: 800;
+    border-bottom: 3px solid #1A73E8;
+    padding-bottom: 12px;
+}
+
+/* ===== EMPTY MESSAGE ===== */
+.empty-message {
+    color: #5F6368;
+    text-align: center;
+    padding: 50px 30px;
+    font-size: 16px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+/* ===== SECTION ===== */
+.section {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 25px;
 }
 
 /* ===== FORM CONTAINER ===== */
 .form-container {
-    max-width: 450px;
+    max-width: 480px;
     margin: 50px auto;
     background-color: white;
-    padding: 35px 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 40px 45px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .form-container h2 {
-    font-size: 24px;
-    color: #4a6fa5;
+    font-size: 26px;
+    color: #2c3e50;
     margin-bottom: 8px;
+    font-weight: 800;
 }
 
 .form-subtitle {
-    color: #888;
+    color: #95a5a6;
     font-size: 14px;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
 /* ===== FORM GROUPS ===== */
@@ -77,49 +280,92 @@ body {
 }
 
 .form-group label {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     margin-bottom: 6px;
-    color: #555;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
-.form-group select {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
+.form-group select,
+.form-group textarea {
+    padding: 11px 14px;
+    border: 2px solid #e8ecf0;
     border-radius: 8px;
     font-size: 14px;
     outline: none;
-    transition: border 0.2s;
+    transition: border 0.2s, box-shadow 0.2s;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: #4a6fa5;
+    box-shadow: 0 0 0 3px rgba(74,111,165,0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
 }
 
 .field-error {
     font-size: 12px;
-    color: red;
-    margin-top: 4px;
+    color: #e74c3c;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* ===== DATE & NUMBER INPUT ===== */
+input[type="datetime-local"],
+input[type="number"] {
+    padding: 11px 14px;
+    border: 2px solid #e8ecf0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: border 0.2s;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+input[type="datetime-local"]:focus,
+input[type="number"]:focus {
+    border-color: #4a6fa5;
+    box-shadow: 0 0 0 3px rgba(74,111,165,0.1);
 }
 
 /* ===== BUTTONS ===== */
 .btn-primary {
     width: 100%;
-    padding: 12px;
-    background-color: #4a6fa5;
+    padding: 13px;
+    background: linear-gradient(135deg, #4a6fa5, #3a5a8a);
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 3px 10px rgba(74,111,165,0.3);
 }
 
 .btn-primary:hover {
-    background-color: #3a5a8a;
+    background: linear-gradient(135deg, #3a5a8a, #2a4a7a);
+    box-shadow: 0 5px 15px rgba(74,111,165,0.4);
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 /* ===== MESSAGES ===== */
@@ -127,35 +373,36 @@ body {
     background-color: #fff5f5;
     border: 1px solid #e74c3c;
     color: #e74c3c;
-    padding: 10px 15px;
+    padding: 12px 16px;
     border-radius: 8px;
     margin-bottom: 15px;
     font-size: 14px;
+    font-weight: 500;
 }
 
 .success-message {
     background-color: #f0fff4;
     border: 1px solid #2ecc71;
     color: #27ae60;
-    padding: 10px 15px;
+    padding: 12px 16px;
     border-radius: 8px;
     margin-bottom: 15px;
     font-size: 14px;
+    font-weight: 500;
 }
 
 .form-footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 22px;
     font-size: 14px;
-    color: #888;
+    color: #95a5a6;
 }
 
 .form-footer a {
     color: #4a6fa5;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
 }
-
 
 /* ===== LOADER SPINNER ===== */
 .spinner {
@@ -186,87 +433,6 @@ body {
     animation: shake 0.4s ease;
 }
 
-.btn-primary:disabled {
-    background-color: #7a9cc5;
-    cursor: not-allowed;
-}
-
-.form-group input.input-error {
-    border-color: #e74c3c;
-    background-color: #fff5f5;
-}
-
-.form-group input.input-success {
-    border-color: #2ecc71;
-    background-color: #f0fff4;
-}
-
-/* ===== NAVBAR USERNAME ===== */
-.nav-username {
-    color: white;
-    font-size: 15px;
-    padding: 6px 12px;
-    background-color: rgba(255,255,255,0.15);
-    border-radius: 6px;
-}
-
-.nav-logout {
-    color: #ffcccc !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-}
-
-.nav-logout:hover {
-    background-color: rgba(231,76,60,0.3) !important;
-}
-
-/* ===== TEXTAREA ===== */
-.form-group textarea {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    resize: vertical;
-    min-height: 80px;
-    font-family: 'Segoe UI', sans-serif;
-    transition: border 0.2s;
-}
-
-.form-group textarea:focus {
-    border-color: #4a6fa5;
-}
-
-/* ===== DATE INPUT ===== */
-input[type="datetime-local"] {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    width: 100%;
-    transition: border 0.2s;
-}
-
-input[type="datetime-local"]:focus {
-    border-color: #4a6fa5;
-}
-
-/* ===== NUMBER INPUT ===== */
-input[type="number"] {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    width: 100%;
-    transition: border 0.2s;
-}
-
-input[type="number"]:focus {
-    border-color: #4a6fa5;
-}
-
-/* ===== RETRY BUTTON ===== */
 /* ===== RETRY BUTTON ===== */
 .retry-btn {
     background: none;
@@ -284,24 +450,14 @@ input[type="number"]:focus {
     background-color: #e74c3c;
     color: white;
 }
-/* ===== HIGH PRIORITY LABEL ===== */
-.high-priority-label {
-    background-color: #f39c12;
-    color: white;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: 8px;
-    font-weight: bold;
+
+/* ===== INPUT STATES ===== */
+.form-group input.input-error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
 }
 
-/* ===== OVERDUE LABEL ===== */
-.overdue-label {
-    background-color: #c0392b;
-    color: white;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: 8px;
-    font-weight: bold;
+.form-group input.input-success {
+    border-color: #2ecc71;
+    background-color: #f0fff4;
 }

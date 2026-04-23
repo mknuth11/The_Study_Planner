@@ -36,7 +36,6 @@ function createTaskCard(task) {
     const card = document.createElement("div");
     card.className = "task-card";
 
-    // Check urgency
     const deadline = new Date(task.deadline);
     const now = new Date();
     const hoursLeft = (deadline - now) / (1000 * 60 * 60);
@@ -49,20 +48,25 @@ function createTaskCard(task) {
         card.classList.add("warning");
     }
 
-    // High priority label
     const highPriority = (task.task_type === "Test" || task.task_type === "Project")
         ? `<span class="high-priority-label">⚡ High Priority</span>`
         : "";
 
-    // Overdue label
     const overdueLabel = hoursLeft < 0
         ? `<span class="overdue-label">🔴 Overdue</span>`
         : "";
 
+    const badgeClass = `badge-${task.task_type.toLowerCase()}`;
+
     card.innerHTML = `
         <div class="task-info">
-            <h4>${task.task_name} ${highPriority} ${overdueLabel}</h4>
-            <p>${task.course_name} • ${task.task_type} • Due: ${deadline.toLocaleDateString()} ${deadline.toLocaleTimeString()}</p>
+            <h4>
+                ${task.task_name}
+                <span class="task-type-badge ${badgeClass}">${task.task_type}</span>
+                ${highPriority}
+                ${overdueLabel}
+            </h4>
+            <p>📚 ${task.course_name} &nbsp;•&nbsp; 📅 Due: ${deadline.toLocaleDateString()} ${deadline.toLocaleTimeString()}</p>
             <p>⏱ Estimated: ${task.estimated_time} hours</p>
         </div>
         <div class="task-actions">
