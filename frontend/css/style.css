@@ -265,3 +265,43 @@ input[type="number"] {
 input[type="number"]:focus {
     border-color: #4a6fa5;
 }
+
+/* ===== RETRY BUTTON ===== */
+/* ===== RETRY BUTTON ===== */
+.retry-btn {
+    background: none;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+    transition: all 0.2s;
+}
+
+.retry-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+/* ===== HIGH PRIORITY LABEL ===== */
+.high-priority-label {
+    background-color: #f39c12;
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* ===== OVERDUE LABEL ===== */
+.overdue-label {
+    background-color: #c0392b;
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-weight: bold;
+}
