@@ -57,3 +57,24 @@ def mark_task_complete(task_id):
             connection.close()
     else:
         return {"success": False, "message": "Database connection failed"}
+
+def get_completed_tasks_by_user(user_id):
+    connection = get_connection()
+    if connection:
+        try:
+            cursor = connection.cursor(dictionary=True)
+            query = """
+                SELECT * FROM tasks 
+                WHERE user_id = %s AND is_completed = TRUE
+                ORDER BY created_at DESC
+            """
+            cursor.execute(query, (user_id,))
+            tasks = cursor.fetchall()
+            return tasks
+        except Exception as e:
+            return []
+        finally:
+            cursor.close()
+            connection.close()
+    else:
+        return []

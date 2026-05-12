@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.schemas.task import TaskCreate
-from app.models.task import create_task, get_tasks_by_user, mark_task_complete
+from app.models.task import create_task, get_tasks_by_user, mark_task_complete, get_completed_tasks_by_user
 
 router = APIRouter()
 
@@ -28,3 +28,9 @@ def get_tasks(user_id: int):
 def complete_task(task_id: int):
     result = mark_task_complete(task_id)
     return result
+
+
+@router.get("/completed/{user_id}")
+def get_completed_tasks(user_id: int):
+    tasks = get_completed_tasks_by_user(user_id)
+    return {"success": True, "tasks": tasks}

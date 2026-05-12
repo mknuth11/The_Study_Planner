@@ -1,35 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Study Planner</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-logo">📚 Study Planner</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="add-task.html">Add Task</a></li>
-            <li><a href="completed.html">Completed</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
+      <div class="nav-logo">📚 Study Planner</div>
+      <ul class="nav-links"></ul>
     </nav>
 
     <main class="main-content">
-        <h1>Dashboard</h1>
-        <div id="task-list">
-            <p>No tasks yet. Click "Add Task" to get started!</p>
+      <h1>Dashboard</h1>
+
+      <!-- Charts Section -->
+      <div class="charts-section" id="charts-section" style="display: none">
+        <h2 class="section-title">📊 Workload Overview</h2>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>⏱ Total Remaining Hours</h3>
+            <canvas id="hoursChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>📚 Tasks by Course</h3>
+            <canvas id="courseChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>📝 Tasks by Type</h3>
+            <canvas id="typeChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>✅ Completed vs Incomplete</h3>
+            <canvas id="completionChart"></canvas>
+          </div>
         </div>
+      </div>
+
+      <!-- Fallback text summary VD6 -->
+      <div class="fallback-summary" id="fallback-summary" style="display: none">
+        <h2 class="section-title">📊 Workload Summary</h2>
+        <div class="fallback-grid" id="fallback-grid"></div>
+      </div>
+
+      <!-- Task List -->
+      <h2 class="section-title">📋 Your Tasks</h2>
+      <div id="task-list"></div>
+
+      <!-- Completed Section -->
+      <div id="completed-section"></div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/session.js"></script>
     <script src="js/main.js"></script>
     <script>
-        requireLogin();
-        updateNavbar();
+      requireLogin();
+      updateNavbar();
     </script>
-</body>
+  </body>
 </html>
